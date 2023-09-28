@@ -32,10 +32,14 @@ function App() {
     setExpenses(prevExpense => [...prevExpense, expenseData]);
   };
 
+  const expenseDeleteHandler = (event) => {
+    setExpenses(prevExpense => prevExpense.filter(e => e.id !== event.target.id));
+  };
+
   return (
     <div>
       <NewExpense onNewExpense={addNewExpense} />
-      <Expenses expenses={expenses} />
+      <Expenses expenses={expenses} onExpenseDelete={expenseDeleteHandler} />
     </div>
   );
 }

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./ExpenseForm.css";
 
 function ExpenseForm(props) {
@@ -23,6 +24,7 @@ function ExpenseForm(props) {
     const formSubmitHandler = (event) => {
         event.preventDefault();
         props.onFormSubmit({
+            id: uuidv4(),
             title: enteredTitle,
             amount: +enteredAmout,
             date: new Date(enteredDate)

@@ -19,7 +19,7 @@ function Expenses(props) {
         <Card className='expenses'>
             <ExpenseFilter onExpenseFilterChange={applyExpenseFilterChange} />
             <ExpenseChart items={filteredExpenses}/>
-            <ExpenseList items={filteredExpenses} />
+            <ExpenseList items={filteredExpenses} onExpenseDelete={props.onExpenseDelete}/>
         </Card>
     );
 }
